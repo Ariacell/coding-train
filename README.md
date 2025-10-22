@@ -5,6 +5,8 @@ Little repo for holding experiments in c++/leetcode that I do
 cmake -G Ninja -DCMAKE_BUILD_TYPE=DEBUG -B build -S .
 cmake --build build
 cd build && ctest
+# Format with
+cmake --build build --target format   
 ```
 
 ## Adding a question
