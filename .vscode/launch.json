@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/37_sudoku/sudoku",
+            "program": "${workspaceFolder}/build/453_minmovesequal/minmovesequal",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

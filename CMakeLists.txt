@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.19)
 project(coding_journey)
 
 # GoogleTest requires at least C++17
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-long-long -pedantic")
 
@@ -38,4 +38,6 @@ enable_testing()
 
 add_subdirectory(2_addtwo)
 add_subdirectory(114_binarytolinkedlist)
+add_subdirectory(453_minmovesequal)
+add_subdirectory(3190_minopsdivbythree)
 add_subdirectory(37_sudoku)
