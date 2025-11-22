@@ -25,6 +25,7 @@ file(GLOB_RECURSE ALL_SOURCE_FILES
     "${CMAKE_SOURCE_DIR}/include/*.h"
     "${CMAKE_SOURCE_DIR}/*.cpp"
     "${CMAKE_SOURCE_DIR}/*.h"
+    "${CMAKE_SOURCE_DIR}/**/*.h"
 )
 add_custom_target(format
     COMMAND ${CLANG_FORMAT_EXECUTABLE} -i
@@ -36,3 +37,5 @@ add_custom_target(format
 enable_testing()
 
 add_subdirectory(2_addtwo)
+add_subdirectory(114_binarytolinkedlist)
+add_subdirectory(37_sudoku)
