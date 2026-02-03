@@ -38,6 +38,7 @@ enable_testing()
 
 add_subdirectory(2_addtwo)
 add_subdirectory(8_atoi)
+add_subdirectory(13_roman)
 add_subdirectory(114_binarytolinkedlist)
 add_subdirectory(453_minmovesequal)
 add_subdirectory(3190_minopsdivbythree)

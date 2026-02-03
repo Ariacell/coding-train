@@ -48,7 +48,7 @@ TEST(Atoi, HandlesEmptyString) {
   Solution sut;
   std::string test_val = "";
   int value = sut.atoi(test_val);
-  EXPECT_EQ(value, 12);
+  EXPECT_EQ(value, 0);
 }
 
 
@@ -56,6 +56,6 @@ TEST(Atoi, HandlesEmptyStringWithSpaces) {
   Solution sut;
   std::string test_val = " ";
   int value = sut.atoi(test_val);
-  EXPECT_EQ(value, 12);
+  EXPECT_EQ(value, 0);
 }
 
