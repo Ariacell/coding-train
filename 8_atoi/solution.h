@@ -10,14 +10,13 @@ public:
         // read digits until non-digit
         // clamp the int
         std::int32_t return_value = 0;
+        int current_index = 0;
+        int string_length = s.size();
         if(s.empty()) {
             return 0;
         }
-        while (s.at(0) == ' ') {
-            s.erase(0,1);
-            if(s.empty()) {
-                return 0;
-            }
+        while (current_index < string_length && s[current_index] == ' ') {
+            ++current_index;
         }
 
         bool is_negative = false;
@@ -25,49 +24,25 @@ public:
         {
         case '-':
             is_negative = true;
-            s.erase(0,1);
+            current_index += 1;
             break;
         case '+':
-            s.erase(0,1);
+            current_index += 1;
             break;
         default:
             break;
         }
-        if(s.empty()) {
-            return 0;
-        }
 
-        // std::cout << std::to_string(is_negative) << std::endl;
-        // std::cout << s.size() << std::endl;
-        std::string::const_iterator it = s.begin();
-
-        std::vector<int> digits = {};
-        while (it != s.end() && std::isdigit(*it)) {
-            digits.emplace_back(*it - '0');
-            ++it;
-        }
-
-        for (auto v : digits)
-            std::cout << v << "\n";
-
-        bool is_too_large = false;
-        for (int d : digits) {
-            if (return_value > (INT32_MAX - d) / 10) {
-                is_too_large = true;
-                break;
+        while (current_index < string_length && std::isdigit(s[current_index])) {
+            int next_digit = s[current_index] - '0';
+            if (return_value > INT32_MAX / 10 || 
+                (return_value == INT32_MAX / 10 && next_digit > INT32_MAX % 10)) {
+                return (!is_negative) ? INT32_MAX : INT32_MIN;
             }
-            return_value = return_value * 10 + d;
-            std::cout << return_value << std::endl;
-        }
-        if (is_too_large) {
-            return is_negative ? -2147483648 : 2147483647;
-        }
-        else if (is_negative) {
-            return_value *= -1;
+            return_value = return_value * 10 + next_digit;
+            ++current_index;
         }
 
-        return return_value;
+        return is_negative ? return_value*-1 : return_value;
     }
-
-    
 };
