@@ -20,7 +20,7 @@ public:
         }
 
         bool is_negative = false;
-        switch (s.at(0))
+        switch (s[current_index])
         {
         case '-':
             is_negative = true;
