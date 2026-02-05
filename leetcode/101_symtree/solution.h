@@ -12,29 +12,30 @@
  class Tree {
   public:
    TreeNode* rootNode;
-   Tree(int[] nodevalues) {
-     TreeNode* root(nodeValues[0]);
+   Tree(std::vector<int> nodevalues) {
+     TreeNode* root = new TreeNode(nodevalues[0]);
      rootNode = root;
      std::queue<TreeNode*> treeNodes;
      treeNodes.push(root);
 
-     for (int i = 1; i < nodevalues.size(); i++) {
+     for (int i = 1; i < (int)nodevalues.size(); i++) {
        TreeNode* currentNode = treeNodes.front();
        treeNodes.pop();
 
-       if (i < nodeValues.size()) {
-         currentNode->left = TreeNode(nodevalues[i]);
+       if (i < (int)nodevalues.size()) {
+         currentNode->left = new TreeNode(nodevalues[i]);
          treeNodes.push(currentNode->left);
        }
        i += 1;
-       if (i < nodeValues.size()) {
-         currentNode->right = TreeNode(nodevalues[i]);
+       if (i < (int)nodevalues.size()) {
+         currentNode->right = new TreeNode(nodevalues[i]);
          treeNodes.push(currentNode->right);
        }
        i += 1;
 
      }
    }
+   
  };
  
 class Solution {

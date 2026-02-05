@@ -4,7 +4,8 @@
 
 TEST(SymTreeTest, handlesSimpleSymTree) {
 
-  auto tree = Tree([ 1, 2, 2, 3, 2, 3, 2 ]);
+  std::vector<int> nodes = {1,2,2};
+  auto tree = Tree(nodes);
 
   Solution sut;
   bool res = sut.isSymmetric(tree.rootNode);
