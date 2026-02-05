@@ -4,7 +4,7 @@ project(coding_journey)
 # GoogleTest requires at least C++17
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-long-long -pedantic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic")
 
 include(FetchContent)
 FetchContent_Declare(
@@ -39,6 +39,7 @@ enable_testing()
 add_subdirectory(2_addtwo)
 add_subdirectory(8_atoi)
 add_subdirectory(13_roman)
+add_subdirectory(101_symtree)
 add_subdirectory(114_binarytolinkedlist)
 add_subdirectory(453_minmovesequal)
 add_subdirectory(3190_minopsdivbythree)
