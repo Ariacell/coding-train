@@ -36,10 +36,13 @@ public:
         dp[0] = true;
 
         for (int i = 1; i <= s.size(); i++) {
-            for (int j = 0; j < i; j++) {
-                if (dp[j] && dict.count(s.substr(j, i - j))) {
-                    dp[i] = true;
-                    break;
+            for (const string& word : wordDict) {
+                int len = word.size();
+                if (i >= len && dp[i - len]) {
+                    if (s.compare(i - len, len, word) == 0) {
+                        dp[i] = true;
+                        break;
+                    }
                 }
             }
         }
