@@ -638,7 +638,7 @@ int main(int argc, char* argv[])
   MusicMetadata metadata = {0};
   extract_metadata(selected_song, &metadata);
   printf("Sample size %d",music.stream.sampleSize);
-  assert(music.stream.sampleSize == 16 || music.stream.sampleSize == 32);
+  assert(music.stream.sampleSize != 24);
 
   assert(music.stream.channels == 2);
 

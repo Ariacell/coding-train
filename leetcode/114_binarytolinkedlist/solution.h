@@ -8,23 +8,38 @@ struct TreeNode {
   TreeNode(int x, TreeNode* left, TreeNode* right)
       : val(x), left(left), right(right) {}
 };
-
 class Solution {
- public:
-  void flatten(TreeNode* root) {
-    TreeNode* prev = nullptr;
-    flattenTree(root, prev);
-  }
+public:
+    void flatten(TreeNode* root) {
+        //use a stack to dfs this tree
+        
+        flattenTree(root, nullptr);
+        
+    }
 
- private:
-  void flattenTree(TreeNode* node, TreeNode*& prev) {
+    void flattenTree(TreeNode* node, TreeNode* prev) {
     if (!node) return;
 
-    flattenTree(node->right, prev);
     flattenTree(node->left, prev);
+    flattenTree(node->right, prev);
 
-    node->right = prev;
-    node->left = nullptr;
-    prev = node;
-  }
+
+        if (node->left != nullptr) {
+            // Store the right subtree
+            TreeNode* temp = node->right;
+
+            // Move the left subtree to the right
+            node->right = node->left;
+            node->left = nullptr;
+
+            // Find the rightmost node of the new right subtree
+            TreeNode* current = node->right;
+            while (current->right != nullptr) {
+                current = current->right;
+            }
+
+            // Connect the right subtree
+            current->right = temp;
+        }
+    }
 };

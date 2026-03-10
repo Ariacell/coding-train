@@ -6,3 +6,9 @@ gcc <file> -lstdc++
 #or
 g++ <file>
 ```
+
+link raylib by adding
+
+```sh
+-I../raylib/build/raylib/include ... -lraylib
+```
